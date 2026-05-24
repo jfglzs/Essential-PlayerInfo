@@ -4,10 +4,10 @@ import com.google.inject.Inject;
 import com.jackdaw.essentialinfo.auxiliary.configuration.SettingManager;
 import com.jackdaw.essentialinfo.auxiliary.serializer.Deserializer;
 import com.jackdaw.essentialinfo.module.AbstractComponent;
-import com.jackdaw.essentialinfo.module.VelocityDataDir;
 import com.velocitypowered.api.event.Subscribe;
 import com.velocitypowered.api.event.connection.DisconnectEvent;
 import com.velocitypowered.api.event.player.ServerConnectedEvent;
+import com.velocitypowered.api.plugin.annotation.DataDirectory;
 import com.velocitypowered.api.proxy.Player;
 import com.velocitypowered.api.proxy.ProxyServer;
 import com.velocitypowered.api.proxy.player.TabListEntry;
@@ -16,7 +16,6 @@ import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 
 import java.nio.file.Path;
-import java.util.concurrent.TimeUnit;
 
 public class TabList extends AbstractComponent {
     // class server
@@ -33,7 +32,7 @@ public class TabList extends AbstractComponent {
      * @param setting         the setting, is expected to be provided by the Main Class.
      */
     @Inject
-    public TabList(ProxyServer proxyServer, Logger logger, @VelocityDataDir Path velocityDataDir, SettingManager setting) {
+    public TabList(ProxyServer proxyServer, Logger logger, @DataDirectory Path velocityDataDir, SettingManager setting) {
         super(proxyServer, logger, velocityDataDir, setting);
         this.isCustomTextEnabled = setting.isCustomTextEnabled();
         this.tabListText = setting.getTabListText();

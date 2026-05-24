@@ -2,6 +2,7 @@ package com.jackdaw.essentialinfo.module;
 
 import com.google.inject.AbstractModule;
 import com.jackdaw.essentialinfo.auxiliary.configuration.SettingManager;
+import com.velocitypowered.api.plugin.annotation.DataDirectory;
 import com.velocitypowered.api.proxy.ProxyServer;
 import org.slf4j.Logger;
 
@@ -38,7 +39,7 @@ public class JackdawModule extends AbstractModule {
     protected void configure() {
         bind(ProxyServer.class).toInstance(proxyServer);
         bind(Logger.class).toInstance(logger);
-        bind(Path.class).annotatedWith(VelocityDataDir.class).toInstance(dataDirectory);
+        bind(Path.class).annotatedWith(DataDirectory.class).toInstance(dataDirectory);
         bind(SettingManager.class).toInstance(setting);
     }
 }

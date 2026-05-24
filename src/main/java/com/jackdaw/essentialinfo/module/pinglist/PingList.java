@@ -3,9 +3,9 @@ package com.jackdaw.essentialinfo.module.pinglist;
 import com.google.inject.Inject;
 import com.jackdaw.essentialinfo.auxiliary.configuration.SettingManager;
 import com.jackdaw.essentialinfo.module.AbstractComponent;
-import com.jackdaw.essentialinfo.module.VelocityDataDir;
 import com.velocitypowered.api.event.Subscribe;
 import com.velocitypowered.api.event.proxy.ProxyPingEvent;
+import com.velocitypowered.api.plugin.annotation.DataDirectory;
 import com.velocitypowered.api.proxy.ProxyServer;
 import com.velocitypowered.api.proxy.server.ServerPing;
 import org.slf4j.Logger;
@@ -15,7 +15,7 @@ import java.nio.file.Path;
 public class PingList extends AbstractComponent {
 
     @Inject
-    public PingList(ProxyServer proxyServer, Logger logger, @VelocityDataDir Path velocityDataDir, SettingManager setting) {
+    public PingList(ProxyServer proxyServer, Logger logger, @DataDirectory Path velocityDataDir, SettingManager setting) {
         super(proxyServer, logger, velocityDataDir, setting);
     }
 

@@ -4,9 +4,9 @@ import com.google.inject.Inject;
 import com.jackdaw.essentialinfo.auxiliary.configuration.SettingManager;
 import com.jackdaw.essentialinfo.auxiliary.serializer.Deserializer;
 import com.jackdaw.essentialinfo.module.AbstractComponent;
-import com.jackdaw.essentialinfo.module.VelocityDataDir;
 import com.velocitypowered.api.event.Subscribe;
 import com.velocitypowered.api.event.player.ServerConnectedEvent;
+import com.velocitypowered.api.plugin.annotation.DataDirectory;
 import com.velocitypowered.api.proxy.Player;
 import com.velocitypowered.api.proxy.ProxyServer;
 import com.velocitypowered.api.proxy.server.RegisteredServer;
@@ -26,7 +26,7 @@ public class ConnectionMessage extends AbstractComponent {
     private final String serverName;
 
     @Inject
-    public ConnectionMessage(ProxyServer proxyServer, Logger logger, @VelocityDataDir Path velocityDataDir, SettingManager setting) {
+    public ConnectionMessage(ProxyServer proxyServer, Logger logger, @DataDirectory Path velocityDataDir, SettingManager setting) {
         super(proxyServer, logger, velocityDataDir, setting);
         this.isCustomTextEnabled = setting.isCustomTextEnabled();
         this.connectionMessageText = setting.getConnectionMessageText();

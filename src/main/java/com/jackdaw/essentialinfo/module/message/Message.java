@@ -4,10 +4,10 @@ import com.google.inject.Inject;
 import com.jackdaw.essentialinfo.auxiliary.configuration.SettingManager;
 import com.jackdaw.essentialinfo.auxiliary.serializer.Deserializer;
 import com.jackdaw.essentialinfo.module.AbstractComponent;
-import com.jackdaw.essentialinfo.module.VelocityDataDir;
 import com.velocitypowered.api.event.PostOrder;
 import com.velocitypowered.api.event.Subscribe;
 import com.velocitypowered.api.event.player.PlayerChatEvent;
+import com.velocitypowered.api.plugin.annotation.DataDirectory;
 import com.velocitypowered.api.proxy.Player;
 import com.velocitypowered.api.proxy.ProxyServer;
 import com.velocitypowered.api.proxy.server.RegisteredServer;
@@ -25,7 +25,7 @@ public class Message extends AbstractComponent {
     private final String chatText;
 
     @Inject
-    public Message(ProxyServer proxyServer, Logger logger, @VelocityDataDir Path velocityDataDir, SettingManager setting) {
+    public Message(ProxyServer proxyServer, Logger logger, @DataDirectory Path velocityDataDir, SettingManager setting) {
         super(proxyServer, logger, velocityDataDir, setting);
         this.isCommandToBroadcast = setting.isCommandToBroadcastEnabled();
         this.isCustomTextEnabled = setting.isCustomTextEnabled();

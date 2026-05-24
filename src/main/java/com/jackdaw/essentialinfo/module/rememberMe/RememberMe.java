@@ -4,12 +4,12 @@ import com.google.inject.Inject;
 import com.jackdaw.essentialinfo.auxiliary.configuration.SettingManager;
 import com.jackdaw.essentialinfo.auxiliary.userInfo.UserInfoManager;
 import com.jackdaw.essentialinfo.module.AbstractComponent;
-import com.jackdaw.essentialinfo.module.VelocityDataDir;
 import com.velocitypowered.api.command.CommandManager;
 import com.velocitypowered.api.command.CommandMeta;
 import com.velocitypowered.api.event.Subscribe;
 import com.velocitypowered.api.event.player.PlayerChooseInitialServerEvent;
 import com.velocitypowered.api.event.player.ServerConnectedEvent;
+import com.velocitypowered.api.plugin.annotation.DataDirectory;
 import com.velocitypowered.api.proxy.ProxyServer;
 import com.velocitypowered.api.proxy.server.RegisteredServer;
 import org.slf4j.Logger;
@@ -22,7 +22,7 @@ public class RememberMe extends AbstractComponent {
     private final File workingDirectory;
 
     @Inject
-    public RememberMe(ProxyServer proxyServer, Logger logger, @VelocityDataDir Path velocityDataDir, SettingManager setting) {
+    public RememberMe(ProxyServer proxyServer, Logger logger, @DataDirectory Path velocityDataDir, SettingManager setting) {
         super(proxyServer, logger, velocityDataDir, setting);
         this.workingDirectory = new File(velocityDataDir.toFile(), "user");
         checkFolder();

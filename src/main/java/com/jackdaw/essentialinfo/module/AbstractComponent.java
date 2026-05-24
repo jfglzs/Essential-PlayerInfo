@@ -2,6 +2,7 @@ package com.jackdaw.essentialinfo.module;
 
 import com.google.inject.Inject;
 import com.jackdaw.essentialinfo.auxiliary.configuration.SettingManager;
+import com.velocitypowered.api.plugin.annotation.DataDirectory;
 import com.velocitypowered.api.proxy.ProxyServer;
 import org.slf4j.Logger;
 
@@ -39,7 +40,7 @@ public abstract class AbstractComponent {
     /**
      * The Velocity data directory.
      */
-    protected final @VelocityDataDir Path velocityDataDir;
+    protected final @DataDirectory Path velocityDataDir;
     /**
      * The Setting.
      */
@@ -54,7 +55,7 @@ public abstract class AbstractComponent {
      * @param setting         the setting, is expected to be provided by the Main Class.
      */
     @Inject
-    public AbstractComponent(ProxyServer proxyServer, Logger logger, @VelocityDataDir Path velocityDataDir, SettingManager setting) {
+    public AbstractComponent(ProxyServer proxyServer, Logger logger, @DataDirectory Path velocityDataDir, SettingManager setting) {
         this.proxyServer = proxyServer;
         this.logger = logger;
         this.velocityDataDir = velocityDataDir;

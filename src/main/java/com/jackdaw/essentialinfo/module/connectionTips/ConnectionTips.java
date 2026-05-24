@@ -4,14 +4,19 @@ import com.google.inject.Inject;
 import com.jackdaw.essentialinfo.auxiliary.configuration.SettingManager;
 import com.jackdaw.essentialinfo.auxiliary.serializer.Deserializer;
 import com.jackdaw.essentialinfo.module.AbstractComponent;
-import com.jackdaw.essentialinfo.module.VelocityDataDir;
 import com.velocitypowered.api.event.Subscribe;
 import com.velocitypowered.api.event.connection.DisconnectEvent;
 import com.velocitypowered.api.event.player.ServerConnectedEvent;
+import com.velocitypowered.api.plugin.annotation.DataDirectory;
 import com.velocitypowered.api.proxy.Player;
 import com.velocitypowered.api.proxy.ProxyServer;
 import com.velocitypowered.api.proxy.server.RegisteredServer;
 import org.jetbrains.annotations.NotNull;
+import org.slf4j.Logger;
+
+import java.nio.file.Path;
+
+
 import org.slf4j.Logger;
 
 import java.nio.file.Path;
@@ -24,7 +29,7 @@ public class ConnectionTips extends AbstractComponent {
     private final boolean isCustomTextEnabled;
 
     @Inject
-    public ConnectionTips(ProxyServer proxyServer, Logger logger, @VelocityDataDir Path velocityDataDir, SettingManager setting) {
+    public ConnectionTips(ProxyServer proxyServer, Logger logger, @DataDirectory Path velocityDataDir, SettingManager setting) {
         super(proxyServer, logger, velocityDataDir, setting);
         this.isCustomTextEnabled = setting.isCustomTextEnabled();
         this.connectionText = setting.getConnectionText();
